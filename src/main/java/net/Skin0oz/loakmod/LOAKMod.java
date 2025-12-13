@@ -1,7 +1,10 @@
 package net.Skin0oz.loakmod;
 
 import com.mojang.logging.LogUtils;
+import net.Skin0oz.loakmod.entity.ModEntities;
+import net.Skin0oz.loakmod.entity.client.RhinoRenderer;
 import net.Skin0oz.loakmod.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,6 +37,8 @@ public class LOAKMod {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModEntities.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -63,6 +68,7 @@ public class LOAKMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         }
     }
 }
