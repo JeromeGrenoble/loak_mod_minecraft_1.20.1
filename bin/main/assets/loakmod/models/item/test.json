@@ -1,0 +1,84 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "loakmod:item/test",
+		"particle": "test"
+	},
+	"elements": [
+		{
+			"from": [7.5, 3, 7.5],
+			"to": [8.5, 10, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 3, 0]},
+			"faces": {
+				"north": {"uv": [5, 0, 5.5, 3.5], "texture": "#0"},
+				"east": {"uv": [5, 3.5, 5.5, 7], "texture": "#0"},
+				"south": {"uv": [5.5, 0, 6, 3.5], "texture": "#0"},
+				"west": {"uv": [5.5, 3.5, 6, 7], "texture": "#0"},
+				"up": {"uv": [6.5, 4.5, 6, 4], "texture": "#0"},
+				"down": {"uv": [6.5, 4.5, 6, 5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 0, 7],
+			"to": [9, 6, 9],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [0, 4, 1, 7], "texture": "#0"},
+				"east": {"uv": [4, 0, 5, 3], "texture": "#0"},
+				"south": {"uv": [1, 4, 2, 7], "texture": "#0"},
+				"west": {"uv": [2, 4, 3, 7], "texture": "#0"},
+				"up": {"uv": [7, 1, 6, 0], "texture": "#0"},
+				"down": {"uv": [7, 1, 6, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 0, 7],
+			"to": [9, 8, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 4], "texture": "#0"},
+				"east": {"uv": [1, 0, 2, 4], "texture": "#0"},
+				"south": {"uv": [2, 0, 3, 4], "texture": "#0"},
+				"west": {"uv": [3, 0, 4, 4], "texture": "#0"},
+				"up": {"uv": [7, 3, 6, 2], "texture": "#0"},
+				"down": {"uv": [7, 3, 6, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.5, 3, 7.5],
+			"to": [8.5, 13, 8.5],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [3, 4, 3.5, 9], "texture": "#0"},
+				"east": {"uv": [4, 3, 4.5, 8], "texture": "#0"},
+				"south": {"uv": [3.5, 4, 4, 9], "texture": "#0"},
+				"west": {"uv": [4.5, 3, 5, 8], "texture": "#0"},
+				"up": {"uv": [6.5, 5.5, 6, 5], "texture": "#0"},
+				"down": {"uv": [6.5, 5.5, 6, 6], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [59, 0, 128],
+			"translation": [-3.75, 2, 17.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 5, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [124, 13, 38],
+			"translation": [1.25, 14, 1]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}
