@@ -1,7 +1,7 @@
 package net.Skin0oz.loakmod.registry;
 
 import net.Skin0oz.loakmod.LOAKMod;
-import net.Skin0oz.loakmod.item.ManaWandItem;
+import net.Skin0oz.loakmod.item.ManaWand.ManaWandItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
