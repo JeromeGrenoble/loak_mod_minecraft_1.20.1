@@ -1,8 +1,8 @@
-package net.Skin0oz.loakmod.item;
+package net.Skin0oz.loakmod.item.ManaWand;
 
-import net.Skin0oz.loakmod.LOAKMod;
+import net.Skin0oz.loakmod.client.fx.ManaWandParticle;
 import net.Skin0oz.loakmod.client.render.ManaWandRenderer;
-import net.Skin0oz.loakmod.registry.ModItems;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -28,8 +28,11 @@ import java.util.function.Consumer;
 
 public class ManaWandItem extends Item implements GeoItem {
 
-    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
+    private static final RawAnimation IDLE  = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation SHOOT = RawAnimation.begin().then("shoot", Animation.LoopType.PLAY_ONCE);
+    AnimationController<GeoAnimatable> controller;
+
+
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -38,8 +41,6 @@ public class ManaWandItem extends Item implements GeoItem {
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
-
-    // Renderer Forge moderne : via IClientItemExtensions (pas de GeoItemRenderer.registerItemRenderer)
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -47,33 +48,21 @@ public class ManaWandItem extends Item implements GeoItem {
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (this.renderer == null) {
-                    this.renderer = new ManaWandRenderer();
-                }
+                if (this.renderer == null) this.renderer = new ManaWandRenderer();
                 return this.renderer;
             }
         });
-    }
-
-    private static final String NBT_FLIP = "loakmod_shoot_flip";
-
-    private static boolean toggleFlip(ItemStack stack) {
-        var tag = stack.getOrCreateTag();
-        boolean flip = tag.getBoolean(NBT_FLIP);
-        tag.putBoolean(NBT_FLIP, !flip);
-        return flip;
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(
                 new AnimationController<>(this, "controller", 0, state -> {
-                    state.setAnimation(RawAnimation.begin().thenLoop("idle"));
+                    state.setAnimation(IDLE);
                     return PlayState.CONTINUE;
-                }).triggerableAnim("shoot", RawAnimation.begin().then("shoot", Animation.LoopType.PLAY_ONCE))
+                }).triggerableAnim("shoot", SHOOT)
         );
     }
-
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
@@ -89,9 +78,9 @@ public class ManaWandItem extends Item implements GeoItem {
             GeoItem.getOrAssignId(stack, serverLevel);
             long id = GeoItem.getOrAssignId(stack, serverLevel);
             triggerAnim(player, id, "controller", "shoot");
+
         }
 
-        // Test simple et ultra fiable: piloter l'anim côté client
         if (level.isClientSide) {
             long id = GeoItem.getId(stack);
 
@@ -108,6 +97,7 @@ public class ManaWandItem extends Item implements GeoItem {
                     controller.forceAnimationReset();
                     controller.tryTriggerAnimation("shoot");
                     //-------------Interaction ici ---------------
+                    ManaWandParticle.startTriplePentagram(1.0);
 
                 }
             }

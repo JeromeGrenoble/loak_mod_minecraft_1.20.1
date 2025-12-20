@@ -1,7 +1,7 @@
 package net.Skin0oz.loakmod.client.model;
 
 import net.Skin0oz.loakmod.LOAKMod;
-import net.Skin0oz.loakmod.item.ManaWandItem;
+import net.Skin0oz.loakmod.item.ManaWand.ManaWandItem;
 import net.minecraft.resources.ResourceLocation;
 
 import software.bernie.geckolib.model.GeoModel;
