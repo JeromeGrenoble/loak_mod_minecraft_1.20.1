@@ -88,7 +88,9 @@ public class LOAKMod {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+            event.enqueueWork(() -> {
+                EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+            });
         }
     }
 }

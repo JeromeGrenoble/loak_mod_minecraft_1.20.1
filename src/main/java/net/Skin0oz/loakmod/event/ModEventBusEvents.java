@@ -3,7 +3,7 @@ package net.Skin0oz.loakmod.event;
 import net.Skin0oz.loakmod.LOAKMod;
 import net.Skin0oz.loakmod.entity.ModEntities;
 import net.Skin0oz.loakmod.entity.client.ModModelLayers;
-import net.Skin0oz.loakmod.entity.client.RhinoModel;
+import net.Skin0oz.loakmod.entity.client.model;
 import net.Skin0oz.loakmod.entity.custom.RhinoEntity;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -24,7 +24,7 @@ public class ModEventBusEvents {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(
                 ModModelLayers.RHINO_LAYER,
-                RhinoModel::createBodyLayer
+                model::createBodyLayer
         );
     }
 }

@@ -1,5 +1,6 @@
 package net.Skin0oz.loakmod.entity;
 
+import net.Skin0oz.loakmod.entity.client.model.*;
 import net.Skin0oz.loakmod.LOAKMod;
 import net.Skin0oz.loakmod.entity.custom.RhinoEntity;
 import net.minecraft.world.entity.EntityType;
@@ -13,8 +14,8 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, LOAKMod.MOD_ID);
     public static final RegistryObject<EntityType<RhinoEntity>> RHINO =
-            ENTITY_TYPE.register("rhino", () -> EntityType.Builder.of(RhinoEntity::new, MobCategory.CREATURE)
-                    .sized(2.5f, 2.5f).build("rhino"));
+            ENTITY_TYPE.register("model", () -> EntityType.Builder.of(RhinoEntity::new, MobCategory.CREATURE)
+                    .sized(1.0f, 1.0f).build("model"));
 
 
     public static void register(IEventBus eventBus) {

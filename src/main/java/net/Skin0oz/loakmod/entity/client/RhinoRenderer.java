@@ -8,16 +8,16 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class RhinoRenderer extends MobRenderer<RhinoEntity, RhinoModel<RhinoEntity>> {
+public class RhinoRenderer extends MobRenderer<RhinoEntity, model<RhinoEntity>> {
     public RhinoRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new RhinoModel<>(pContext.bakeLayer(ModModelLayers.RHINO_LAYER)), 2f);
+        super(pContext, new model<>(pContext.bakeLayer(ModModelLayers.RHINO_LAYER)), 0.75f);
     }
 
     @Override
     public ResourceLocation getTextureLocation(RhinoEntity pEntity) {
         return ResourceLocation.fromNamespaceAndPath(
                 LOAKMod.MOD_ID,
-                "textures/entity/rhino.png"
+                "textures/entity/ram.png"
         );
     }
 
