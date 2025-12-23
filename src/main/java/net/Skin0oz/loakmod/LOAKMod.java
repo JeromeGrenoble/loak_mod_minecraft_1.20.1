@@ -3,6 +3,7 @@ package net.Skin0oz.loakmod;
 import com.mojang.logging.LogUtils;
 import net.Skin0oz.loakmod.entity.ModEntities;
 import net.Skin0oz.loakmod.entity.client.RhinoRenderer;
+import net.Skin0oz.loakmod.entity.sound.ModSounds;
 import net.Skin0oz.loakmod.registry.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -33,6 +34,8 @@ public class LOAKMod {
 
         // Registries
         ModItems.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         // Mod lifecycle
         modEventBus.addListener(this::commonSetup);

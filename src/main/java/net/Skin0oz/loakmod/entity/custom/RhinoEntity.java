@@ -1,7 +1,10 @@
 package net.Skin0oz.loakmod.entity.custom;
 
 import net.Skin0oz.loakmod.entity.ModEntities;
+import net.Skin0oz.loakmod.entity.sound.ModSounds;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -90,4 +93,16 @@ public class RhinoEntity extends Animal {
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.COOKED_BEEF);
     }
+
+    @Override
+    public boolean isSilent() {
+        return false;
+    }
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.RAM_DEATH.get();
+    }
+
 }
+

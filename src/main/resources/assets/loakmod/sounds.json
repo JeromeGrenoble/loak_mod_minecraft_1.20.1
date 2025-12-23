@@ -1,0 +1,8 @@
+{
+  "entity.ram.death": {
+    "subtitles": "sounds.loakmod.entity.ram.death",
+    "sounds": [
+      "loakmod:entity.ram.death"
+    ]
+  }
+}
